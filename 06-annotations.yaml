@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: pod
+metadata:
+  name: annotations-demo
+  annotations:
+    jenkins.url: "https://jenkins.ellamma.fun/build/job/5"
+    imageregistry: "https://hub.docker.com/ellamma"
+
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
