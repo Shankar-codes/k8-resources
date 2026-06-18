@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod #this should be in small letters but in Pod it is in capital letters
+metadata:
+  name: error-test
+
+spec:
+  containers:
+    - name: nginx
+      image: nginxxxx
+      ports:
+        - containerPort: 80
