@@ -3,7 +3,7 @@ kind: pod
 metadata:
   name: annotations-demo
   annotations:
-    jenkins.url: "https://jenkins.ellamma.fun/build/job/5"
+    jenkins-url: "https://jenkins.ellamma.fun/build/job/5"
     imageregistry: "https://hub.docker.com/ellamma"
 
 spec:
