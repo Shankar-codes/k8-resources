@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: pod
+metadata: env-demo
+spec:
+  containers:
+    - name: env-demo
+      image: nginx
+      env:
+        - name: team1
+          value: "dev team"
+        - name: team2
+          value: "prod team"
