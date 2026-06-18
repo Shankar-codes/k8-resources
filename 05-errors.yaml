@@ -9,3 +9,5 @@ spec:
       image: nginxxxx
       ports:
         - containerPort: 80
+    - name: almalinux
+      image: almalinux:9
