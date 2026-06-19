@@ -1,5 +1,5 @@
 apiVersion: v1
-kind: Pod #this should be in small letters but in Pod it is in capital letters
+kind: Pod
 metadata:
   name: error-test
 
