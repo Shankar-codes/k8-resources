@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: service-demo
+  #These labels are used by the service to select this pod
+  labels:
+    project: ellamma-ecommerce
+    component: frontend
+    environment: dev
+spec:
+  containers:
+    - name: nginx
+      image: nginx
