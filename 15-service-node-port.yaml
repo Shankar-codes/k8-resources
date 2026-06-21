@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-node-port-demo
+spec:
+  type: NodePort
+  selector:
+    project: ellamma-ecommerce
+    component: frontend
+    environment: dev
+ports:
+    - protocol: TCP
+      port: 80 #service port
+      targetPort: 80 #container port
