@@ -8,7 +8,7 @@ spec:
     project: ellamma-ecommerce
     component: frontend
     environment: dev
-    purpose: node-port
+    purpose: load-balancer
   ports:
       - protocol: TCP
         port: 80 #service port
