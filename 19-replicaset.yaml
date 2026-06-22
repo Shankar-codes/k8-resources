@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx
+  # replicaset labels
+  labels:
+    purpose: replicaset
+    project: ellamma-ecommerce
+spec:
+  replicas: 3 #create 3 pods of replica
+  selector:
+    # these labels are used to select the pods
+    matchLabels:
+      purpose: replicaset
+      project: ellamma-ecommerce
+# pod definition      
+  template:
+    metadata:
+      labels:
+        purpose: replicaset
+        project: ellamma-ecommerce
+      spec:
+        containers:
+        - name: nginx
+          image: nginx
