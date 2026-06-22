@@ -19,7 +19,7 @@ spec:
       labels:
         purpose: replicaset
         project: ellamma-ecommerce
-      spec:
-        containers:
-        - name: nginx
-          image: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
