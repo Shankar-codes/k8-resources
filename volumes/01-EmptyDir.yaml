@@ -17,7 +17,7 @@ spec:
     volumeMounts:
     - mountPath: /mnt/nginx-log
       name: nginx-log
-      readonly: true
+      readOnly: true
   volumes:
   - name: nginx-log
     emptyDir:
