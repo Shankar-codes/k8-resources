@@ -4,11 +4,11 @@ metadata:
   name: efs-static
 spec:
   capacity:
-    storage: 5Gi
+    storage: 5Gi # dummy, size is elastic
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  storageClassName: "" # should be empty in static efs
+  storageClassName: "" # should be empty in static
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: efs.csi.aws.com
@@ -33,17 +33,19 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: efs-static
+  name: nginx
+  labels:
+    purpose: efs-static
 spec:
   containers:
   - name: nginx
     image: nginx
     volumeMounts:
-    - name: persistent-storage
+    - name: nginx-html
       mountPath: /usr/share/nginx/html
   nodeSelector:
     topology.kubernetes.io/zone: us-east-1c
   volumes:
-  - name: persistent-storage
+  - name: nginx-html
     persistentVolumeClaim:
       claimName: efs-static
