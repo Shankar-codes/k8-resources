@@ -1,0 +1,8 @@
+# storageclass is created by k8s administrator
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ellamma-ebs
+reclaimPolicy: Retain
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
