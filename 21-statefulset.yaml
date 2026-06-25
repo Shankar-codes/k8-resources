@@ -8,7 +8,7 @@ metadata:
     purpose: stateful-demo
 spec:
   # if the service clusterIP none then it is a headless service
-  clusterIP: none
+  clusterIP: None
   selector:
     name: nginx
     purpose: stateful-demo
