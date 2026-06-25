@@ -33,3 +33,42 @@ spec:
   ports:
     - port: 80 #service port
       name: web
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+      purpose: stateful-demo # has to match .spec.template.metadata.labels
+  serviceName: "nginx-headless" # this is headless service name
+  replicas: 3 # by default is 1
+  template:
+    metadata:
+      labels:
+        app: nginx # has to match .spec.selector.matchLabels
+        purpose: stateful-demo
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  # this is pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "ellamma-ebs"
+      resources:
+        requests:
+          storage: 1Gi
