@@ -32,7 +32,7 @@ metadata:
   name: nginx
 spec:
   # if the service clusterIP none then it is a headless service
-  clusterIP: none
+  clusterIP: None
   selector:
     purpose: deployment
     project: headless-service-demo
