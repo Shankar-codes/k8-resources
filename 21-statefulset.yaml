@@ -1,0 +1,35 @@
+# headless service clusterIP: none
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-headless
+  labels:
+    name: nginx
+    purpose: stateful-demo
+spec:
+  # if the service clusterIP none then it is a headless service
+  clusterIP: none
+  selector:
+    name: nginx
+    purpose: stateful-demo
+  ports:
+    - port: 80 #service port
+      name: web
+
+---
+# normael service
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    name: nginx
+    purpose: stateful-demo
+spec:
+  # if the service clusterIP none then it is a headless service
+  selector:
+    name: nginx
+    purpose: stateful-demo
+  ports:
+    - port: 80 #service port
+      name: web
