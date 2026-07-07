@@ -39,6 +39,7 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
+    
 ---
 
 apiVersion: v1
@@ -46,12 +47,11 @@ kind: Service
 metadata:
   name: nginx-headless
 spec:
-  # if the service clusterIP none then it is a headless service
   clusterIP: None
   selector:
     purpose: deployment
     project: headless-service-demo
   ports:
   - protocol: TCP
-    port: 80 #service port
-    targetPort: 80 #container port
+    port: 80
+    targetPort: 80
